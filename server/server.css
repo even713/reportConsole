@@ -1,0 +1,15 @@
+.type-log, .type-info, .type-debug, .type-error{
+	border-bottom: 1px solid #CCC;
+}  
+.type-log, .type-info {
+	color: #000;
+}
+.type-debug{
+	color: blue;
+}
+.type-error{
+	color: red;
+}
+.type-ajax-error{
+	color: #FF00FF;
+}

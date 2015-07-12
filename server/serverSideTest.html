@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Console</title>
+  <meta name="description" content="My Bmob App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="server.css">
+  <script type="text/javascript" src="../jquery.min.js"></script>
+  <script type="text/javascript" src="bmob-min.js"></script>
+  <script type="text/javascript" src="bmobSocketIo.js"></script>
+  <script type="text/javascript" src="logServer.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+	<h1>Console</h1>
+
+    <div>
+      <input type="button" value="Clear log" id="clearLogBtn"/>
+    </div>
+
+    <div id="logContent"></div>
+  </div>
+
+  <script type="text/javascript">
+
+var myLogServer = new logServer("cara", "#logContent");  
+  $("#clearLogBtn").on("click", function(){
+    myLogServer.clearLog();
+  });
+
+	
+  </script>
+</body>
+
+</html>

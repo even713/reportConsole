@@ -1,0 +1,54 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Bmob App</title>
+  <meta name="description" content="My Bmob App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="text/javascript" src="../jquery.min.js"></script>
+  <script type="text/javascript" src="logClient-all.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+	<h1>开始Bmob之旅!</h1>
+
+
+    <div>
+      <input type="button" value="Add debug log" id="addLogBtn"/>
+      <input type="button" value="Add error log" id="addErrorLogBtn"/>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+var myLog = new logClient("cara");
+  $("#addLogBtn").on("click", function(){
+    var str = "hello at " + new Date();
+    var o = {d: new Date(), t: 1, a: "e", b: [1, 2, 3, {c: [4, 5]}]};
+    console.debug(o);
+    //myLog.info(JSON.stringify(o));
+  });
+
+  $("#addErrorLogBtn").on("click", function(){
+    throw new Error("出错了！");
+    //myLog.info(JSON.stringify(o));
+  });
+
+
+setTimeout(function(){
+  $.ajax( {
+    url: "index.html"
+  //  , global: false // 可以禁止触发全局的Ajax事件
+  } );
+}, 2000)
+
+	
+  </script>
+</body>
+
+</html>
