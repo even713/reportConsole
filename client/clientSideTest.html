@@ -7,12 +7,16 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/styles.css">
-  <script type="text/javascript" src="../jquery.min.js"></script>
-  <script type="text/javascript" src="logClient-all.js"></script>
+  <!-- <script type="text/javascript" src="../jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="bmob-min.js"></script> -->
+  <!-- <script type="text/javascript" src="Bmob-1.6.2.min.js"></script> -->
+  <script type="text/javascript" src="logClient-thin-all.js"></script>
+  <script type="text/javascript" src="http://pv.sohu.com/cityjson"></script>
+  <!-- <script type="text/javascript" src="logClient-all.js"></script> -->
 </head>
 
 <body>
-  
+
   <div id="main">
 	<h1>开始Bmob之旅!</h1>
 
@@ -27,27 +31,31 @@
   <script type="text/javascript">
 
 var myLog = new logClient("cara");
-  $("#addLogBtn").on("click", function(){
+  document.getElementById("addLogBtn").addEventListener("click", function(){
+  // $("#addLogBtn").on("click", function(){
     var str = "hello at " + new Date();
     var o = {d: new Date(), t: 1, a: "e", b: [1, 2, 3, {c: [4, 5]}]};
-    console.debug(o);
+    var o2 = {d: new Date(), ip: returnCitySN.cip};
+    myLog.log(o2);
+    //console.debug(o2);
     //myLog.info(JSON.stringify(o));
   });
 
-  $("#addErrorLogBtn").on("click", function(){
+  document.getElementById("addErrorLogBtn").addEventListener("click", function(){
+  // $("#addErrorLogBtn").on("click", function(){
     throw new Error("出错了！");
     //myLog.info(JSON.stringify(o));
   });
 
 
-setTimeout(function(){
-  $.ajax( {
-    url: "index.html"
-  //  , global: false // 可以禁止触发全局的Ajax事件
-  } );
-}, 2000)
+// setTimeout(function(){
+//   $.ajax( {
+//     url: "index.html"
+//   //  , global: false // 可以禁止触发全局的Ajax事件
+//   } );
+// }, 2000)
 
-	
+
   </script>
 </body>
 
